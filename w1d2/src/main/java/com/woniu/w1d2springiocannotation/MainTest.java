@@ -9,6 +9,7 @@ public class MainTest {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 
+        System.out.println("热修复");
         CarController carController = applicationContext.getBean(CarController.class);
         Car car = new Car("v6引擎", "米其林", "福耀玻璃");
         carController.addCar(car);
