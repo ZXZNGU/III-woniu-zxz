@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.woniu.mapper.UserMapper">
+
+    <update id="updateUser" parameterType="User">
+        UPDATE smbms_user
+        <set>
+            <if test="userCode!=null and userCode!=''">
+                userCode = #{userCode},
+            </if>
+            <if test="userName!=null and userName!=''">
+                userName = #{userName},
+            </if>
+            <if test="birthday!=null">
+                birthday = #{birthday},
+            </if>
+            <if test="roleid!=null and roleid!=0">
+                roleid = #{roleid},
+            </if>
+        </set>
+        WHERE id=#{id}
+    </update>
+</mapper>

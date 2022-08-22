@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <!--配置日志存放的地方-->
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+        </Console>
+    </Appenders>
+
+    <!--配置打日志包名-->
+    <Loggers>
+        <Root level="debug" >
+            <AppenderRef ref="Console" />
+        </Root>
+
+        <!--注意：针对我们的Dao层进行日志记录-->
+        <logger name="com.woniu.dao" level="debug" additivity="false">
+            <AppenderRef ref="Console" />
+        </logger>
+    </Loggers>
+</Configuration>
